@@ -14,7 +14,7 @@ angular.module('myApp.filters', [])
   .filter('userName', [function() {
     return function (user) {
       if (!user || !user.first_name && !user.last_name) {
-        return 'DELETED';
+        return 'BORRADO';
       }
       return user.first_name + ' ' + user.last_name;
     }
@@ -23,7 +23,7 @@ angular.module('myApp.filters', [])
   .filter('userFirstName', [function() {
     return function (user) {
       if (!user || !user.first_name && !user.last_name) {
-        return 'DELETED';
+        return 'BORRADO';
       }
       return user.first_name || user.last_name;
     }
@@ -32,20 +32,20 @@ angular.module('myApp.filters', [])
   .filter('userStatus', ['$filter', function($filter) {
     return function (user) {
       if (!user || !user.status || user.status._ == 'userStatusEmpty') {
-        return 'offline';
+        return 'desconectado';
       }
       if (user.status._ == 'userStatusOnline') {
-        return 'online';
+        return 'conectado';
       }
 
-      return 'last seen ' + $filter('relativeTime')(user.status.was_online);
+      return 'ültima conexión ' + $filter('relativeTime')(user.status.was_online);
     }
   }])
 
   .filter('chatTitle', [function() {
     return function (chat) {
       if (!chat || !chat.title) {
-        return 'DELETED';
+        return 'BORRADO';
       }
       return chat.title;
     }
@@ -121,9 +121,9 @@ angular.module('myApp.filters', [])
           totalParts = total.split(' ');
 
       if (totalParts[1] === doneParts[1]) {
-        return doneParts[0] + ' of ' + totalParts[0] + ' ' + (doneParts[1] || '');
+        return doneParts[0] + ' de ' + totalParts[0] + ' ' + (doneParts[1] || '');
       }
-      return done + ' of ' + total;
+      return done + ' de ' + total;
     }
   }])
 
@@ -145,13 +145,13 @@ angular.module('myApp.filters', [])
           diff = Math.abs(tsNow() - ticks);
 
       if (diff < 60000) {
-        return 'just now';
+        return 'ahora mismo';
       }
       if (diff < 3000000) {
-        return Math.ceil(diff / 60000) + ' minutes ago';
+        return 'hace '+Math.ceil(diff / 60000) + ' minutos';
       }
       if (diff < 10000000) {
-        return Math.ceil(diff / 3600000) + ' hours ago';
+        return 'hace '+Math.ceil(diff / 3600000) + ' houras';
       }
       return $filter('dateOrTime')(timestamp);
     }
