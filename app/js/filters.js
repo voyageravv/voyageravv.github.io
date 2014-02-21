@@ -151,7 +151,7 @@ angular.module('myApp.filters', [])
         return 'hace '+Math.ceil(diff / 60000) + ' minutos';
       }
       if (diff < 10000000) {
-        return 'hace '+Math.ceil(diff / 3600000) + ' houras';
+        return 'hace '+Math.ceil(diff / 3600000) + ' horas';
       }
       return $filter('dateOrTime')(timestamp);
     }
