@@ -1,7 +1,7 @@
 <div class="user_modal_wrap">
 
   <div class="modal-header">
-    <a class="modal-close-link" ng-click="$close()">Close</a>
+    <a class="modal-close-link" ng-click="$close()">Cerrar</a>
     <h4 class="modal-title">Info</h4>
   </div>
 
@@ -21,19 +21,19 @@
       <p class="user_modal_status" ng-if="user.status">{{user | userStatus}}</p>
 
       <p class="user_modal_phone" ng-if="user.phone">{{user.phone | phoneNumber}}</p>
-      <button class="btn btn-primary user_modal_send_btn" ng-click="goToHistory()">Send message</button>
+      <button class="btn btn-primary user_modal_send_btn" ng-click="goToHistory()">Enviar mensaje</button>
     </div>
 
     <div class="user_modal_settings_wrap">
       <div class="user_modal_notifications">
-        Notifications:
+        Notificaciones:
         <a ng-click="settings.notifications = !settings.notifications">
           {{settings.notifications ? 'ON' : 'OFF'}}
         </a>
       </div>
 
       <div class="user_modal_clear">
-        <a href="" ng-click="flushHistory()">Clear Chat History</a>
+        <a href="" ng-click="flushHistory()">Borrar historial del chat</a>
       </div>
     </div>
 

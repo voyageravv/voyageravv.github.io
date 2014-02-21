@@ -21,7 +21,7 @@
     </div>
 
     <div class="im_history_col_wrap" ng-controller="AppImHistoryController">
-      <div ng-if="state.notSelected" class="im_history_not_selected">No history to display</div>
+      <div ng-if="state.notSelected" class="im_history_not_selected">No hay historial que mostrar/div>
 
       <div ng-if="state.loaded">
         <div my-history class="im_history_col">
@@ -32,31 +32,31 @@
               <div class="im_history_panel_title">
 
                 <a class="im_history_panel_info_link pull-right" ng-click="showPeerInfo()">Info</a>
-                <a class="im_history_panel_edit_link pull-right" ng-click="toggleEdit()">Edit</a>
+                <a class="im_history_panel_edit_link pull-right" ng-click="toggleEdit()">Editar</a>
 
                 <div class="dropdown im_history_panel_media_dropdown pull-right">
                   <a class="dropdown-toggle">Media<i class="icon icon-caret"></i></a>
                   <ul class="dropdown-menu">
                     <li>
-                      <a ng-click="toggleMedia('photos')">Photos</a>
+                      <a ng-click="toggleMedia('photos')">Fotos</a>
                     </li>
                     <li>
                       <a ng-click="toggleMedia('video')">Videos</a>
                     </li>
                     <li>
-                      <a ng-click="toggleMedia('documents')">Documents</a>
+                      <a ng-click="toggleMedia('documents')">Documentos</a>
                     </li>
                   </ul>
                 </div>
                 <a ng-if="mediaType !== false" class="im_history_panel_return_link pull-right" ng-click="toggleMedia()">
-                  Show all messages
+                  Mostrar todos los mensajes
                   <strong class="im_history_panel_return_count" ng-show="missedCount > 0">+{{missedCount}}</strong>
                 </a>
 
                 <h4 ng-if="mediaType !== false" ng-switch="mediaType">
-                  <span ng-switch-when="photos"> Photos </span>
+                  <span ng-switch-when="photos"> Fotos </span>
                   <span ng-switch-when="video"> Videos </span>
-                  <span ng-switch-when="documents"> Documents </span>
+                  <span ng-switch-when="documents"> Documentos </span>
                 </h4>
 
                 <h4 ng-if="mediaType === false &amp;&amp; historyPeer.id < 0" ng-click="showPeerInfo()">
@@ -79,7 +79,7 @@
 
             <div class="im_edit_panel_wrap clearfix" ng-show="selectActions">
               <a class="im_edit_delete_link" ng-click="selectedDelete()"><i class="icon icon-delete"></i></a>
-              <a class="im_edit_cancel_link" ng-click="selectedCancel()">Cancel</a>
+              <a class="im_edit_cancel_link" ng-click="selectedCancel()">Cancelar</a>
               <h4 class="im_edit_panel_title">
                 <ng-pluralize count="selectedCount"
                                  when="{'0': 'Select messages', 'one': '1 message', 'other': '{} messages'}">
@@ -102,7 +102,7 @@
 
                   <div class="im_history_typing_wrap">
                     <div class="im_history_typing" ng-show="typing.user">
-                      <strong class="im_history_typing_author" ng-bind-html="typing.user.rFullName"></strong> is typing<span my-typing-dots></span>
+                      <strong class="im_history_typing_author" ng-bind-html="typing.user.rFullName"></strong> está tecleando<span my-typing-dots></span>
                     </div>
                   </div>
 
@@ -133,7 +133,7 @@
                   />
                 </div>
                 <form my-send-form draft-message="draftMessage" class="im_send_form" ng-submit="sendMessage($event)">
-                  <div class="im_send_dropbox_wrap"> Drop photos here to send </div>
+                  <div class="im_send_dropbox_wrap"> Suelta aqui tus fotos para enviarlas </div>
                   <textarea ng-model="draftMessage.text" placeholder="Write a message..." class="form-control im_message_field"></textarea>
 
                   <div class="im_media_attach pull-right">
@@ -151,7 +151,7 @@
                     <i class="icon icon-emoji"></i>
                   </div>
 
-                  <button type="submit" class="btn btn-tg im_submit">Send</button>
+                  <button type="submit" class="btn btn-tg im_submit">Enviar</button>
                 </form>
               </div>
 
@@ -171,7 +171,7 @@
 </div>
 
 <div class="im_page_footer">
-  <a class="im_page_footer_brand" target="_blank" href="https://github.com/zhukov/webogram">Telegram alpha</a> by izhukov &amp; toberg
+  <a class="im_page_footer_brand" target="_blank" href="https://github.com/zhukov/webogram">Demigram alpha</a> by Forocoches
 </div>
 
 <div id="notify_sound"></div>
