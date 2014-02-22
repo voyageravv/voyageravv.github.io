@@ -852,7 +852,7 @@ angular.module('myApp.controllers', [])
       $scope.notify.desktop = !settings[0];
       $scope.notify.sound = !settings[1];
       $scope.send.enter = settings[2] ? '' : '1';
-       $scope.notify.sound = !settings[3];
+       $scope.last.seen= !settings[3];
 
       $scope.$watch('notify.sound', function(newValue, oldValue) {
         if (newValue === oldValue) {
