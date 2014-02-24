@@ -198,10 +198,9 @@ angular.module('myApp.controllers', [])
         maxID = 0,
         hasMore = false,
         startLimit = 20,
-        limit = 100; 
-   
+        limit = 100;
 
-    MtpApiManager.invokeApi('account.updateStatus', {offline: true});
+    MtpApiManager.invokeApi('account.updateStatus', {offline: false});
     $scope.$on('dialogs_need_more', function () {
       // console.log('on need more');
       showMoreDialogs();
@@ -848,7 +847,7 @@ angular.module('myApp.controllers', [])
 
     $scope.notify = {};
     $scope.send = {};
-    $scope.hide = {};
+	$scope.hide = {};
 
     AppConfigManager.get('notify_nodesktop', 'notify_nosound', 'send_ctrlenter', 'hide_lastseen').then(function (settings) {
       $scope.notify.desktop = !settings[0];
