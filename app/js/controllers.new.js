@@ -1,8 +1,8 @@
 /*!
- * Webogram v0.0.18 - messaging web application for MTProto
- * https://github.com/zhukov/webogram
+ * Demigram v0.0.18 - messaging web application for MTProto
+ * https://github.com/voyageravv/app
  * Copyright (C) 2014 Igor Zhukov <igor.beatle@gmail.com>
- * https://github.com/zhukov/webogram/blob/master/LICENSE
+ * https://github.com/voyageravv/app/blob/master/LICENSE
  */
 
 'use strict';
@@ -47,7 +47,7 @@ angular.module('myApp.controllers', [])
         MtpApiManager.invokeApi('auth.sendCall', {
           phone_number: $scope.credentials.phone_number,
           phone_code_hash: $scope.credentials.phone_code_hash
-        }, options).then(function () {
+        }).then(function () {
           $scope.callPending.success = true;
         });
       } else {
@@ -848,10 +848,11 @@ angular.module('myApp.controllers', [])
     $scope.notify = {};
     $scope.send = {};
 
-    AppConfigManager.get('notify_nodesktop', 'notify_nosound', 'send_ctrlenter').then(function (settings) {
+    AppConfigManager.get('notify_nodesktop', 'notify_nosound', 'send_ctrlenter','hide_lastseen').then(function (settings) {
       $scope.notify.desktop = !settings[0];
       $scope.notify.sound = !settings[1];
       $scope.send.enter = settings[2] ? '' : '1';
+       $scope.last.seen= !settings[3];
 
       $scope.$watch('notify.sound', function(newValue, oldValue) {
         if (newValue === oldValue) {
@@ -861,6 +862,17 @@ angular.module('myApp.controllers', [])
           AppConfigManager.remove('notify_nosound');
         } else {
           AppConfigManager.set({notify_nosound: true});
+          NotificationsManager.clear();
+        }
+      });
+	$scope.$watch('hide_lastseen', function(newValue, oldValue) {
+        if (newValue === oldValue) {
+          return false;
+        }
+        if (newValue) {
+          AppConfigManager.remove('hide_lastseen');
+        } else {
+          AppConfigManager.set({hide_lastseen: true});
           NotificationsManager.clear();
         }
       });
