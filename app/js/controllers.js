@@ -864,6 +864,17 @@ angular.module('myApp.controllers', [])
           NotificationsManager.clear();
         }
       });
+      $scope.$watch('hide.lastseen', function(newValue, oldValue) {
+        if (newValue === oldValue) {
+          return false;
+        }
+        if (newValue) {
+          AppConfigManager.remove('hide_lastseen');
+        } else {
+          AppConfigManager.set({hide_lastseen: true});
+          NotificationsManager.clear();
+        }
+      });
 
       $scope.$watch('notify.desktop', function(newValue, oldValue) {
         if (newValue === oldValue) {
