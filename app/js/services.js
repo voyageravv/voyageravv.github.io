@@ -188,7 +188,7 @@ angular.module('myApp.services', [])
       apiUser.rFullName = RichTextProcessor.wrapRichText(apiUser.last_name, {noLinks: true, noLinebreaks: true}) || 'DELETED';
     }
     apiUser.sortName = $.trim((apiUser.last_name || '') + ' ' + apiUser.first_name);
-    apiUser.sortStatus = apiUser.status && (apiUser.status.expires || apiUser.status.was_online) || 0;
+    apiUser.sortStatus = '';
 
 
     if (users[apiUser.id] === undefined) {
@@ -2354,9 +2354,9 @@ angular.module('myApp.services', [])
         !offline && (date - lastOnlineUpdated) < 50000) {
       return;
     }
-    lastOnlineUpdated = offline ? 0 : date;
+    lastOnlineUpdated = offline;
     return MtpApiManager.invokeApi('account.updateStatus', {
-      offline: offline
+      offline: true
     });
   }
 
