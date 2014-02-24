@@ -198,9 +198,10 @@ angular.module('myApp.controllers', [])
         maxID = 0,
         hasMore = false,
         startLimit = 20,
-        limit = 100;
+        limit = 100; 
+   
 
-    MtpApiManager.invokeApi('account.updateStatus', {offline: false});
+    MtpApiManager.invokeApi('account.updateStatus', {offline: true});
     $scope.$on('dialogs_need_more', function () {
       // console.log('on need more');
       showMoreDialogs();
