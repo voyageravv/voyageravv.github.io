@@ -847,6 +847,7 @@ angular.module('myApp.controllers', [])
 
     $scope.notify = {};
     $scope.send = {};
+    $scope.hide = {};
 
     AppConfigManager.get('notify_nodesktop', 'notify_nosound', 'send_ctrlenter', 'hide_lastseen').then(function (settings) {
       $scope.notify.desktop = !settings[0];
