@@ -1,8 +1,8 @@
 <div class="settings_modal_wrap">
 
   <div class="modal-header">
-    <a class="modal-close-link" ng-click="$close()">Close</a>
-    <h4 class="modal-title">Settings</h4>
+    <a class="modal-close-link" ng-click="$close()">Cerrar</a>
+    <h4 class="modal-title">Ajustes</h4>
   </div>
 
   <div class="modal-body">
@@ -10,22 +10,22 @@
     <form name="profileForm" class="settings_profile_edit_form clearfix">
       <div class="form-group settings_profile_first_name" ng-class="{'has-error': error.field == 'first_name'}">
         <label class="control-label" for="first_name">
-          <span ng-if="error.field == 'first_name'">Invalid First Name</span>
-          <span ng-if="error.field != 'first_name'">First Name</span>
+          <span ng-if="error.field == 'first_name'">Nombre no válido</span>
+          <span ng-if="error.field != 'first_name'">Nombre</span>
         </label>
         <input type="text" class="form-control" name="first_name" ng-model="profile.first_name" required />
       </div>
 
       <div class="form-group settings_profile_last_name" ng-class="{'has-error': error.field == 'last_name'}">
         <label class="control-label" for="last_name">
-          <span ng-if="error.field == 'last_name'">Invalid Last Name</span>
-          <span ng-if="error.field != 'last_name'">Last Name</span>
+          <span ng-if="error.field == 'last_name'">Apellido no válido</span>
+          <span ng-if="error.field != 'last_name'">Apellidos</span>
         </label>
         <input type="text" class="form-control" name="last_name" ng-model="profile.last_name" />
       </div>
 
       <div class="settings_profile_save">
-        <button class="btn btn-link settings_profile_save_btn" ng-click="save(profileForm)" ng-disabled="profileForm.$invalid || (!profileForm.last_name.$dirty &amp;&amp; !profileForm.first_name.$dirty)">Save</button>
+        <button class="btn btn-link settings_profile_save_btn" ng-click="save(profileForm)" ng-disabled="profileForm.$invalid || (!profileForm.last_name.$dirty &amp;&amp; !profileForm.first_name.$dirty)">Guardar</button>
       </div>
     </form>
 
@@ -33,44 +33,44 @@
       <div class="radio">
         <label>
           <input type="radio" value="1" ng-model="send.enter">
-          <strong>Enter</strong> - send message, <strong>Shift + Enter</strong> - new line
+          <strong>Enter</strong> - enviar mensaje, <strong>Shift + Enter</strong> - nueva línea
         </label>
       </div>
       <div class="radio">
         <label>
           <input type="radio" value="" ng-model="send.enter">
-          <strong>Ctrl + Enter</strong> - send message, <strong>Enter</strong> - new line
+          <strong>Ctrl + Enter</strong> - send message, <strong>Enter</strong> - nueva línea
         </label>
       </div>
     </form>
 <p>
-      <strong>Ocultar conexion: </strong>
+      <strong>Ocultar conexión: </strong>
       <a ng-click="hide.lastseen = !hide.lastseen">{{hide.lastseen ? 'ON' : 'OFF'}}</a>
     </p>
     <p>
-      <strong>Sound: </strong>
+      <strong>Sonido: </strong>
       <a ng-click="notify.sound = !notify.sound">{{notify.sound ? 'ON' : 'OFF'}}</a>
     </p>
 
     <p>
-      <strong>Desktop Notifications: </strong>
+      <strong>Notificaciones de escritorio: </strong>
       <a ng-click="notify.desktop = !notify.desktop">{{notify.desktop ? 'ON' : 'OFF'}}</a>
     </p>
 
     <p>
-      <strong>User: </strong>
+      <strong>Usuario: </strong>
       <span class="settings_user_phone">{{phone | phoneNumber}}</span>
     </p>
 
     <p>
       <strong>Version: </strong>
-      <span class="settings_version">alpha 0.0.18</span>
+      <span class="settings_version">alpha 0.2</span>
     </p>
 
     <hr/>
 
     <div class="settings_logout_wrap">
-      <a href="" ng-click="logOut()">Log out</a>
+      <a href="" ng-click="logOut()">Cerrar sesión</a>
     </div>
   </div>
 </div>
