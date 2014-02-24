@@ -43,7 +43,10 @@
         </label>
       </div>
     </form>
-
+<p>
+      <strong>Ocultar conexion: </strong>
+      <a ng-click="hide.lastseen = !hide.lastseen">{{hide.lastseen ? 'ON' : 'OFF'}}</a>
+    </p>
     <p>
       <strong>Sound: </strong>
       <a ng-click="notify.sound = !notify.sound">{{notify.sound ? 'ON' : 'OFF'}}</a>

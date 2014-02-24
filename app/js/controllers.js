@@ -848,10 +848,11 @@ angular.module('myApp.controllers', [])
     $scope.notify = {};
     $scope.send = {};
 
-    AppConfigManager.get('notify_nodesktop', 'notify_nosound', 'send_ctrlenter').then(function (settings) {
+    AppConfigManager.get('notify_nodesktop', 'notify_nosound', 'send_ctrlenter', 'hide_lastseen').then(function (settings) {
       $scope.notify.desktop = !settings[0];
       $scope.notify.sound = !settings[1];
       $scope.send.enter = settings[2] ? '' : '1';
+      $scope.hide.lastseen= !settings[3];
 
       $scope.$watch('notify.sound', function(newValue, oldValue) {
         if (newValue === oldValue) {
