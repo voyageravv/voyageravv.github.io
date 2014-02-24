@@ -2493,7 +2493,11 @@ angular.module('myApp.services', [])
         Notification.permission !== 'granted') {
       return false;
     }
-
+    AppConfigManager.get('hide_lastseen').then(function (hidelastseen) {
+      if (!hidelastseen) {
+        
+      }
+    })
     AppConfigManager.get('notify_nosound').then(function (noSound) {
       if (!noSound) {
         playSound();
