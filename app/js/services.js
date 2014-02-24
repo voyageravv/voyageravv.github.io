@@ -2356,7 +2356,7 @@ angular.module('myApp.services', [])
     }
     lastOnlineUpdated = offline ? 0 : date;
     return MtpApiManager.invokeApi('account.updateStatus', {
-      offline: offline
+      offline: true
     });
   }
 
