@@ -199,9 +199,6 @@ angular.module('myApp.controllers', [])
         hasMore = false,
         startLimit = 20,
         limit = 100;
-AppConfigManager.get('notify_nodesktop', 'notify_nosound', 'send_ctrlenter', 'hide_lastseen').then(function (settings) 
-      
-      $scope.hide.lastseen= !settings[3];
     if ($scope.hide.lastseen)
     MtpApiManager.invokeApi('account.updateStatus', {offline: true});
     else
