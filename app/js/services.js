@@ -2355,14 +2355,11 @@ angular.module('myApp.services', [])
       return;
     }
     lastOnlineUpdated = offline ? 0 : date;
-    if (hide.lastseen)
+    
     return MtpApiManager.invokeApi('account.updateStatus', {
       offline: true
     });
-    else
-    return MtpApiManager.invokeApi('account.updateStatus', {
-      offline: offline
-    });
+   
 
   }
 
